@@ -1,0 +1,6 @@
+<style>
+    .pds-app-header-bar
+    {
+        background: linear-gradient(90deg, #00c853, #009624) !important;
+    }
+</style>
