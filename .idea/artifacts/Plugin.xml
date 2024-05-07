@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="Plugin">
+    <output-path>$PROJECT_DIR$/build</output-path>
+    <root id="root">
+      <element id="archive" name="tcaps-test-server-id.zip">
+        <element id="dir-copy" path="$PROJECT_DIR$/plugin" />
+      </element>
+    </root>
+  </artifact>
+</component>
