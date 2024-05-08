@@ -7,6 +7,12 @@
     <!-- Required style sheets: screen.css, and print.css -->
     <link href="/images/css/screen.css" rel="stylesheet" media="screen">
     <link href="/images/css/print.css" rel="stylesheet" media="print">
+    <script>
+        $j('#testservercolor').on('change', function ()
+        {
+            console.log($j('#testservercolor').value);
+        });
+    </script>
 </head>
 <body>
 ~[wc:admin_header_css]
@@ -16,71 +22,64 @@
 <!-- Start of Page -->
 <h1>Test Server Display Settings</h1>
 <!-- start of content area -->
-<div class="box-round">
-    <h2>Test Server Display Settings</h2>
-    <form action="/~[self]~[if.gpv.recordSaved=]&recordSaved=1[/if]" method="post">
-        <fieldset>
-            <legend>Settings</legend>
-            <div>
-                <label for="testservername">Name</label>
-                <span>
-                    <input type="text" name="[pref]tcaps_testservername" id="testservername"
-                           value=""/>
-                    <a href="#" id="clearname">Clear</a>
-                </span>
-            </div>
-            <div>
-                <label for="testservercolor">
-                    Background color<br>&nbsp;&nbsp;e.g., #66FF66 or rgb(102,255,102)
-                </label>
-                <span>
-                    <input type="text" name="[pref]tcaps_testservercolor" id="testservercolor"
-                           value=""/>
-                    <a href="#" id="clearcolor">Clear</a>
-                    <input type="color" name="colortest" id="colortest"/><br/><br/>
-                    <span id="testservercolorpicker"></span>
-                </span>
-            </div>
-            <div>
-                <label for="publicMessage">
-                    ~[text:psx.html.admin_district.signinscreencustommessage.student_and_parent_sign_in_message1]
-                    <br><br>
-                    <input type="button"
-                           onclick="javascript:$j('#teachersMessage,#subMessage,#adminMessage')
+<form action="/~[self]~[if.gpv.recordSaved=]&recordSaved=1[/if]" method="post">
+    <fieldset>
+        <legend>Test Server Display Settings</legend>
+        <div>
+            <label for="testservername">Name</label>
+            <span>
+                <input type="text" name="[pref]tcaps_testservername" id="testservername"
+                       value=""/>
+                <a href="#" id="clearname">Clear</a>
+            </span>
+        </div>
+        <div>
+            <label for="testservercolor">
+                Background color<br>&nbsp;&nbsp;e.g., #66FF66 or rgb(102,255,102)
+            </label>
+            <span>
+                <input type="color" name="[pref]tcaps_testservercolor" id="testservercolor"/>
+            </span>
+        </div>
+        <div>
+            <label for="publicMessage">
+                ~[text:psx.html.admin_district.signinscreencustommessage.student_and_parent_sign_in_message1]
+                <br><br>
+                <input type="button"
+                       onclick="javascript:$j('#teachersMessage,#subMessage,#adminMessage')
                            .val($j('#publicMessage').val());" value="Copy to All Portals"/>
-                </label>
-                <textarea id="publicMessage" class="psRTE" name="[pref]customportalmessage-public"
-                          value="" cols="50" style="height:3em;"></textarea>
-            </div>
-            <div>
-                <label for="teachersMessage">
-                    ~[text:psx.html.admin_district.signinscreencustommessage.teacher_sign_in_message1]
-                </label>
-                <textarea id="teachersMessage" class="psRTE"
-                          name="[pref]customportalmessage-teachers"
-                          value="" cols="50" style="height:3em;"></textarea>
-            </div>
-            <div>
-                <label for="subMessage">
-                    ~[text:psx.html.admin_district.signinscreencustommessage.substitute_teacher_sign_in_message1]
-                </label>
-                <textarea id="subMessage" class="psRTE" name="[pref]customportalmessage-subs"
-                          value="" cols="50" style="height:3em;"></textarea>
-            </div>
-            <div>
-                <label for="adminMessage">
-                    ~[text:psx.html.admin_district.signinscreencustommessage.administrator_sign_in_message1]
-                </label>
-                <textarea id="adminMessage" class="psRTE" name="[pref]customportalmessage-admin"
-                          value="" cols="50" style="height:3em;"></textarea>
-            </div>
-            <div class="button-row">
-                <input type="hidden" name="ac" value="prim">
-                ~[submitbutton]
-            </div>
-        </fieldset>
-    </form>
-</div>
+            </label>
+            <textarea id="publicMessage" class="psRTE" name="[pref]customportalmessage-public"
+                      value="" cols="50" style="height:3em;"></textarea>
+        </div>
+        <div>
+            <label for="teachersMessage">
+                ~[text:psx.html.admin_district.signinscreencustommessage.teacher_sign_in_message1]
+            </label>
+            <textarea id="teachersMessage" class="psRTE"
+                      name="[pref]customportalmessage-teachers"
+                      value="" cols="50" style="height:3em;"></textarea>
+        </div>
+        <div>
+            <label for="subMessage">
+                ~[text:psx.html.admin_district.signinscreencustommessage.substitute_teacher_sign_in_message1]
+            </label>
+            <textarea id="subMessage" class="psRTE" name="[pref]customportalmessage-subs"
+                      value="" cols="50" style="height:3em;"></textarea>
+        </div>
+        <div>
+            <label for="adminMessage">
+                ~[text:psx.html.admin_district.signinscreencustommessage.administrator_sign_in_message1]
+            </label>
+            <textarea id="adminMessage" class="psRTE" name="[pref]customportalmessage-admin"
+                      value="" cols="50" style="height:3em;"></textarea>
+        </div>
+        <div class="button-row">
+            <input type="hidden" name="ac" value="prim">
+            ~[submitbutton]
+        </div>
+    </fieldset>
+</form>
 <!-- end of content area -->
 ~[wc:admin_footer_css]
 </body>
