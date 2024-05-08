@@ -8,9 +8,10 @@
     <link href="/images/css/screen.css" rel="stylesheet" media="screen">
     <link href="/images/css/print.css" rel="stylesheet" media="print">
     <script>
+        // TODO: Disable the color picker if the override checkbox is not checked
         $j('#testservercolor').on('change', function ()
         {
-            console.log($j('#testservercolor').value);
+            console.log($j('#testservercolor').val());
         });
     </script>
 </head>
@@ -26,7 +27,7 @@
     <fieldset>
         <legend>Test Server Display Settings</legend>
         <div>
-            <label for="testservername">Name</label>
+            <label for="testservername">Server Name</label>
             <span>
                 <input type="text" name="[pref]tcaps_testservername" id="testservername"
                        value=""/>
@@ -34,9 +35,15 @@
             </span>
         </div>
         <div>
-            <label for="testservercolor">
-                Background color<br>&nbsp;&nbsp;e.g., #66FF66 or rgb(102,255,102)
-            </label>
+            <label for="testserveroverridecolor">Override Background Color</label>
+            <span>
+                <input type="checkbox" name="[pref]tcaps_testserveroverridecolor"
+                       id="testserveroverridecolor"
+                       value=""/>
+            </span>
+        </div>
+        <div>
+            <label for="testservercolor">Background Color</label>
             <span>
                 <input type="color" name="[pref]tcaps_testservercolor" id="testservercolor"/>
             </span>
