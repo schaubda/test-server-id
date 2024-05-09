@@ -11,7 +11,7 @@
         $j(function ()
            {
                $j('#test-server-color').prop('disabled',
-                                             $j('#test-server-override-color').prop('checked'));
+                                             !$j('#test-server-override-color').prop('checked'));
 
                if ($j('#test-server-override-color').prop('checked'))
                {
@@ -20,37 +20,39 @@
                else
                {
                    $j('#test-server-color-label').addClass('label-disabled');
+
                }
+
+               $j('#test-server-override-color').on('change', function ()
+               {
+                   $j('#test-server-color').prop('disabled', !this.checked);
+
+                   if (this.checked)
+                   {
+                       $j('#test-server-color-label').removeClass('label-disabled');
+                   }
+                   else
+                   {
+                       $j('#test-server-color-label').addClass('label-disabled');
+                   }
+               });
+
+               $j('#clear-server-name').on('click', function ()
+               {
+                   $j('#test-server-name').val('');
+               });
+
+               $j('#copy-to-all-portals').on('click', function ()
+               {
+                   $j('#teachers-message,#sub-message,#admin-message')
+                       .val($j('#public-message').val());
+               });
            });
-
-        $j('#test-server-override-color').on('change', function ()
-        {
-            $j('#test-server-color').prop('disabled', !this.checked);
-
-            if (this.checked)
-            {
-                $j('#test-server-color-label').removeClass('label-disabled');
-            }
-            else
-            {
-                $j('#test-server-color-label').addClass('label-disabled');
-            }
-        });
-
-        $j('#clear-server-name').on('click', function ()
-        {
-            $j('#test-server-name').val('');
-        });
-
-        $j('#copy-to-all-portals').on('click', function ()
-        {
-            $j('#teachers-message,#sub-message,#admin-message').val($j('#public-message').val());
-        });
     </script>
     <style>
         .label-disabled
         {
-            color: #404040;
+            color: #bdbdbd;
         }
     </style>
 </head>
