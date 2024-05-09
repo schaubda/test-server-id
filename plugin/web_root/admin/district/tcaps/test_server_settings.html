@@ -8,12 +8,51 @@
     <link href="/images/css/screen.css" rel="stylesheet" media="screen">
     <link href="/images/css/print.css" rel="stylesheet" media="print">
     <script>
-        // TODO: Disable the color picker if the override checkbox is not checked
-        $j('#testservercolor').on('change', function ()
+        $j(function ()
+           {
+               $j('#test-server-color').prop('disabled',
+                                             $j('#test-server-override-color').prop('checked'));
+
+               if ($j('#test-server-override-color').prop('checked'))
+               {
+                   $j('#test-server-color-label').removeClass('label-disabled');
+               }
+               else
+               {
+                   $j('#test-server-color-label').addClass('label-disabled');
+               }
+           });
+
+        $j('#test-server-override-color').on('change', function ()
         {
-            console.log($j('#testservercolor').val());
+            $j('#test-server-color').prop('disabled', !this.checked);
+
+            if (this.checked)
+            {
+                $j('#test-server-color-label').removeClass('label-disabled');
+            }
+            else
+            {
+                $j('#test-server-color-label').addClass('label-disabled');
+            }
+        });
+
+        $j('#clear-server-name').on('click', function ()
+        {
+            $j('#test-server-name').val('');
+        });
+
+        $j('#copy-to-all-portals').on('click', function ()
+        {
+            $j('#teachers-message,#sub-message,#admin-message').val($j('#public-message').val());
         });
     </script>
+    <style>
+        .label-disabled
+        {
+            color: #404040;
+        }
+    </style>
 </head>
 <body>
 ~[wc:admin_header_css]
@@ -25,60 +64,58 @@
 <!-- start of content area -->
 <form action="/~[self]~[if.gpv.recordSaved=]&recordSaved=1[/if]" method="post">
     <fieldset>
-        <legend>Test Server Display Settings</legend>
+        <legend>Settings</legend>
         <div>
-            <label for="testservername">Server Name</label>
+            <label for="test-server-name">Server Name</label>
             <span>
-                <input type="text" name="[pref]tcaps_testservername" id="testservername"
+                <input type="text" name="[pref]tcaps-testservername" id="test-server-name"
                        value=""/>
-                <a href="#" id="clearname">Clear</a>
+                <button type="button" id="clear-server-name">Clear</button>
             </span>
         </div>
         <div>
-            <label for="testserveroverridecolor">Override Background Color</label>
+            <label for="test-server-override-color">Override Background Color</label>
             <span>
-                <input type="checkbox" name="[pref]tcaps_testserveroverridecolor"
-                       id="testserveroverridecolor"
+                <input type="checkbox" name="[pref]tcaps-testserveroverridecolor"
+                       id="test-server-override-color"
                        value=""/>
             </span>
         </div>
         <div>
-            <label for="testservercolor">Background Color</label>
+            <label for="test-server-color" id="test-server-color-label">Background Color</label>
             <span>
-                <input type="color" name="[pref]tcaps_testservercolor" id="testservercolor"/>
+                <input type="color" name="[pref]tcaps-testservercolor" id="test-server-color"/>
             </span>
         </div>
         <div>
-            <label for="publicMessage">
+            <label for="public-message">
                 ~[text:psx.html.admin_district.signinscreencustommessage.student_and_parent_sign_in_message1]
                 <br><br>
-                <input type="button"
-                       onclick="javascript:$j('#teachersMessage,#subMessage,#adminMessage')
-                           .val($j('#publicMessage').val());" value="Copy to All Portals"/>
+                <button type="button" id="copy-to-all-portals">Copy to All Portals</button>
             </label>
-            <textarea id="publicMessage" class="psRTE" name="[pref]customportalmessage-public"
+            <textarea id="public-message" class="psRTE" name="[pref]customportalmessage-public"
                       value="" cols="50" style="height:3em;"></textarea>
         </div>
         <div>
-            <label for="teachersMessage">
+            <label for="teachers-message">
                 ~[text:psx.html.admin_district.signinscreencustommessage.teacher_sign_in_message1]
             </label>
-            <textarea id="teachersMessage" class="psRTE"
+            <textarea id="teachers-message" class="psRTE"
                       name="[pref]customportalmessage-teachers"
                       value="" cols="50" style="height:3em;"></textarea>
         </div>
         <div>
-            <label for="subMessage">
+            <label for="sub-message">
                 ~[text:psx.html.admin_district.signinscreencustommessage.substitute_teacher_sign_in_message1]
             </label>
-            <textarea id="subMessage" class="psRTE" name="[pref]customportalmessage-subs"
+            <textarea id="sub-message" class="psRTE" name="[pref]customportalmessage-subs"
                       value="" cols="50" style="height:3em;"></textarea>
         </div>
         <div>
-            <label for="adminMessage">
+            <label for="admin-message">
                 ~[text:psx.html.admin_district.signinscreencustommessage.administrator_sign_in_message1]
             </label>
-            <textarea id="adminMessage" class="psRTE" name="[pref]customportalmessage-admin"
+            <textarea id="admin-message" class="psRTE" name="[pref]customportalmessage-admin"
                       value="" cols="50" style="height:3em;"></textarea>
         </div>
         <div class="button-row">
