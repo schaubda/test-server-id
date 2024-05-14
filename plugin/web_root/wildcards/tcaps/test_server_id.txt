@@ -1,6 +1,12 @@
+<!-- Begin TCAPS Test Server Identification Plugin -->
+~[if#override-enabled.~[displaypref:tcaps-testserveroverridecolor]#]
+~[if#color-enabled.~[displaypref:tcaps-testservercolor]#]
 <style>
     .pds-app-header-bar
     {
         background: linear-gradient(90deg, #00c853, #009624) !important;
     }
 </style>
+[/if#color-enabled]
+[/if#override-enabled]
+<!-- End TCAPS Test server Identification Plugin -->
