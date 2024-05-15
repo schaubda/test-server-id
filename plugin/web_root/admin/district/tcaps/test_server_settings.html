@@ -67,9 +67,10 @@
 <!-- start of main menu and content -->
 ~[wc:admin_navigation_css]
 <!-- Start of Page -->
+~[wc:changes_saved_or_deleted_header]
 <h1>Test Server Display Settings</h1>
 <!-- start of content area -->
-<form action="/~[self]~[if.gpv.recordSaved=]&recordSaved=1[/if]" method="post">
+<form action="/~[self.page]?recordSaved=1" method="post">
     <fieldset>
         <legend>Settings</legend>
         <div>
@@ -91,7 +92,8 @@
         <div>
             <label for="test-server-color" id="test-server-color-label">Background Color</label>
             <span>
-                <input type="color" name="[pref]tcaps-testservercolor" id="test-server-color"/>
+                <input type="color" name="[pref]tcaps-testservercolor" id="test-server-color"
+                       value=""/>
             </span>
         </div>
         <div>
