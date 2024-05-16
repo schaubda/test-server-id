@@ -4,8 +4,10 @@
 <style>
     .pds-app-header-bar
     {
-        /*background: linear-gradient(90deg, #00c853, #009624) !important;*/
-        background: ~[displaypref:tcaps-testservercolor] !important;
+        --bg-color1: ~[displaypref:tcaps-testservercolor];
+        --bg-color2: color-mix(~[displaypref:tcaps-testservercolor], #000000 10%);
+
+        background: linear-gradient(90deg, var(--bg-color1), var(--bg-color2)) !important;
     }
 </style>
 [/if#color-enabled]
