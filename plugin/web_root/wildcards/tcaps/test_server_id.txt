@@ -4,7 +4,8 @@
 <style>
     .pds-app-header-bar
     {
-        background: linear-gradient(90deg, #00c853, #009624) !important;
+        /*background: linear-gradient(90deg, #00c853, #009624) !important;*/
+        background: ~[displaypref:tcaps-testservercolor] !important;
     }
 </style>
 [/if#color-enabled]
