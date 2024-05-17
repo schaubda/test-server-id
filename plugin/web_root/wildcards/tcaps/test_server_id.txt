@@ -12,4 +12,13 @@
 </style>
 [/if#color-enabled]
 [/if#override-enabled]
+
+~[if#name-set.~[displaypref:tcaps-testservername]#]
+<script>
+    $j(function ()
+       {
+          $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
+       });
+</script>
+[/if#name-set]
 <!-- End TCAPS Test server Identification Plugin -->
