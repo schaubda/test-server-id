@@ -4,10 +4,10 @@
 <style>
     .pds-app-header-bar
     {
-        --bg-color1: ~[displaypref:tcaps-testservercolor];
-        --bg-color2: color-mix(in srgb, ~[displaypref:tcaps-testservercolor], #000000 30%);
+        --bg-color1: ~ [displaypref:tcaps-testservercolor];
+        --bg-color2: color-mix(in srgb, ~ [displaypref:tcaps-testservercolor], #000 30%);
 
-        background: linear-gradient(90deg, var(--bg-color1), var(--bg-color2)) !important;
+        background:  linear-gradient(90deg, var(--bg-color1), var(--bg-color2)) !important;
     }
 </style>
 [/if#color-enabled]
@@ -17,7 +17,8 @@
 <script>
     $j(function ()
        {
-          $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
+           $j('title').prepend('~[displaypref:tcaps-testservername]: ');
+           $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
        });
 </script>
 [/if#name-set]
