@@ -4,7 +4,7 @@
         description="Adds options to change the top blue bar's background color and replace its
         'PowerSchool SIS' text with custom text."
         name="TCAPS Test Server Identification"
-        version="24.5.0.15"
+        version="24.5.0.17"
         xsi:schemaLocation="http://plugin.powerschool.pearson.com plugin.xsd">
     <publisher name="Traverse City Area Public Schools">
         <contact email="schaubda@tcaps.net"/>
