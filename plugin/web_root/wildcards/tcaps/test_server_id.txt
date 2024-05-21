@@ -21,6 +21,8 @@
            ~[if#admin-portal.~[directory]=admin]
            $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
            [/if#admin-portal]
+
+            console.log('directory: ~[directory]');
        });
 </script>
 [/if#name-set]
