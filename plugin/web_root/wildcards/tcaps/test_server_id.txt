@@ -17,10 +17,15 @@
 <script>
     $j(function ()
        {
-           $j('title').prepend('~[displaypref:tcaps-testservername]: ');
-           ~[if#admin-portal.~[directory]=admin]
-           $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
-           [/if#admin-portal]
+            $j('title').prepend('~[displaypref:tcaps-testservername]: ');
+
+            ~[if#admin-portal.~[directory]=admin]
+            $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
+            [/if#admin-portal]
+
+            ~[if#teacher-portal.~[directory]=teachers]
+            $j('.pds-powerschool-logo div').html('~[displaypref:tcaps-testservername]');
+            [/if#teacher-portal]
 
             console.log('directory: ~[directory]');
        });
