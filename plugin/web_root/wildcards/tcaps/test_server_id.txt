@@ -5,7 +5,7 @@
     .pds-app-header-bar
     {
         --bg-color1: ~[displaypref:tcaps-testservercolor];
-        --bg-color2: color-mix(in srgb, ~[displaypref:tcaps-testservercolor], #000 30%);
+        --bg-color2: color-mix(in srgb, ~[displaypref:tcaps-testservercolor], #000 40%);
 
         background:  linear-gradient(90deg, var(--bg-color1), var(--bg-color2)) !important;
     }
@@ -18,7 +18,9 @@
     $j(function ()
        {
            $j('title').prepend('~[displaypref:tcaps-testservername]: ');
+           ~[if#admin-portal.~[directory]=admin]
            $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
+           [/if#admin-portal]
        });
 </script>
 [/if#name-set]
