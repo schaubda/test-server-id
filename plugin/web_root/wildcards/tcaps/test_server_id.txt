@@ -2,6 +2,7 @@
 ~[if#override-enabled.~[displaypref:tcaps-testserveroverridecolor]#]
 ~[if#color-enabled.~[displaypref:tcaps-testservercolor]#]
 <style>
+    ~[if#admin-portal.~[directory]=admin]
     .pds-app-header-bar
     {
         --bg-color1: ~[displaypref:tcaps-testservercolor];
@@ -9,6 +10,34 @@
 
         background:  linear-gradient(90deg, var(--bg-color1), var(--bg-color2)) !important;
     }
+    [/if#admin-portal]
+
+    ~[if#teacher-portal.~[directory]=teachers]
+    .pds-app-header-bar
+    {
+        --bg-color1: ~[displaypref:tcaps-testservercolor];
+        --bg-color2: color-mix(in srgb, ~[displaypref:tcaps-testservercolor], #000 40%);
+
+        background:  linear-gradient(90deg, var(--bg-color1), var(--bg-color2)) !important;
+    }
+    [/if#teacher-portal]
+
+    ~[if#pubic-portal.~[directory]=guardian]
+    #usercontext-bar
+    {
+        background: ~[displaypref:tcaps-testservercolor] !important;
+    }
+
+    #btnContMax
+    {
+        background: ~[displaypref:tcaps-testservercolor] !important;
+    }
+
+    #students-list li.selected a, #students-list li:hover a
+    {
+        background: color-mix(in srgb, ~[displaypref:tcaps-testservercolor], #FFF 40%)  !important;
+    }
+    [/if#pubic-portal]
 </style>
 [/if#color-enabled]
 [/if#override-enabled]
@@ -26,6 +55,10 @@
             ~[if#teacher-portal.~[directory]=teachers]
             $j('.pds-powerschool-logo div').html('~[displaypref:tcaps-testservername]');
             [/if#teacher-portal]
+
+            ~[if#pubic-portal.~[directory]=guardian]
+            $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
+            [/if#pubic-portal]
 
             console.log('directory: ~[directory]');
        });
