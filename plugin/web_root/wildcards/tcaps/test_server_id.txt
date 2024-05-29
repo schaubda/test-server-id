@@ -51,6 +51,11 @@
                 float: left;
             }
 
+            #test-server-name
+            {
+                display: inline-block;
+            }
+
             #test-server-name h1
             {
                 margin: 15px;
