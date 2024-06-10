@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/build</output-path>
     <root id="root">
       <element id="archive" name="tcaps-test-server-id.zip">
-        <element id="dir-copy" path="$PROJECT_DIR$/plugin" />
+        <element id="dir-copy" path="$PROJECT_DIR$/eui_plugin" />
       </element>
     </root>
   </artifact>

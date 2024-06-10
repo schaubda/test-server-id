@@ -1,0 +1,95 @@
+<!-- Begin TCAPS Test Server Identification Plugin -->
+<style>
+    ~[if#override-enabled.~[displaypref:tcaps-testserveroverridecolor]#]
+        ~[if#color-enabled.~[displaypref:tcaps-testservercolor]#]
+            ~[if#admin-portal.~[directory]=admin]
+            .pds-app-header-bar
+            {
+                --bg-color1: ~[displaypref:tcaps-testservercolor];
+                --bg-color2: color-mix(in srgb, ~[displaypref:tcaps-testservercolor], #000 40%);
+
+                background:  linear-gradient(90deg, var(--bg-color1), var(--bg-color2)) !important;
+            }
+            [/if#admin-portal]
+
+            ~[if#teacher-portal.~[directory]=teachers]
+            .pds-app-header-bar
+            {
+                --bg-color1: ~[displaypref:tcaps-testservercolor];
+                --bg-color2: color-mix(in srgb, ~[displaypref:tcaps-testservercolor], #000 40%);
+
+                background:  linear-gradient(90deg, var(--bg-color1), var(--bg-color2)) !important;
+            }
+            [/if#teacher-portal]
+        [/if#color-enabled]
+    [/if#override-enabled]
+
+    ~[if#pubic-portal.~[directory]=guardian]
+        ~[if#override-enabled.~[displaypref:tcaps-testserveroverridecolor]#]
+            ~[if#color-enabled.~[displaypref:tcaps-testservercolor]#]
+                #usercontext-bar
+                {
+                    background: ~[displaypref:tcaps-testservercolor] !important;
+                }
+
+                #btnContMax
+                {
+                    background: ~[displaypref:tcaps-testservercolor] !important;
+                }
+
+                #students-list li.selected a, #students-list li:hover a
+                {
+                    background: color-mix(in srgb, ~[displaypref:tcaps-testservercolor], #FFF 30%)  !important;
+                }
+            [/if#color-enabled]
+        [/if#override-enabled]
+
+        ~[if#name-set.~[displaypref:tcaps-testservername]#]
+            #branding-powerschool
+            {
+                display: inline-block;
+                float: left;
+            }
+
+            #test-server-name
+            {
+                display: inline-block;
+            }
+
+            #test-server-name h1
+            {
+                margin: 15px;
+            }
+        [/if#name-set]
+    [/if#pubic-portal]
+</style>
+
+~[if#public-portal.~[directory]=guardian]
+    <script type="text/template" id="test-server-name-template">
+        <div id="test-server-name">
+            <h1>~[displaypref:tcaps-testservername]</h1>
+        </div>
+    </script>
+[/if#public-portal]
+
+~[if#name-set.~[displaypref:tcaps-testservername]#]
+    <script>
+        $j(function ()
+           {
+                $j('title').prepend('~[displaypref:tcaps-testservername]: ');
+
+                ~[if#admin-portal.~[directory]=admin]
+                    $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
+                [/if#admin-portal]
+
+                ~[if#teacher-portal.~[directory]=teachers]
+                    $j('.pds-powerschool-logo div').html('~[displaypref:tcaps-testservername]');
+                [/if#teacher-portal]
+
+                ~[if#pubic-portal.~[directory]=guardian]
+                    $j('#branding-powerschool').after($j('#test-server-name-template').html());
+                [/if#pubic-portal]
+           });
+    </script>
+[/if#name-set]
+<!-- End TCAPS Test server Identification Plugin -->
