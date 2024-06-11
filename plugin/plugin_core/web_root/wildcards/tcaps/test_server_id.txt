@@ -79,10 +79,9 @@
                 $j('title').prepend('~[displaypref:tcaps-testservername]: ');
 
                 ~[if#admin-portal.~[directory]=admin]
-                    console.log('admin check passed');
                     ~[if#version.~[version]>=23.5]
                         $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
-                    [else]
+                    [else#version]
                            $j('#branding-powerschool')
                                .html('<img src="/scripts/pds/img/powerschool-white.svg" ' +
                                      'alt="PowerSchool SIS">~[displaypref:tcaps-testservername]');
@@ -92,10 +91,11 @@
                 ~[if#teacher-portal.~[directory]=teachers]
                     ~[if#version.~[version]>=23.5]
                         $j('.pds-powerschool-logo div').html('~[displaypref:tcaps-testservername]');
-                    [else]
+                    [else#version]
                         $j('#branding-powerschool')
                            .html('<img src="/scripts/pds/img/powerschool-white.svg" ' +
                                  'alt="PowerSchool SIS">~[displaypref:tcaps-testservername]');
+                    [/if#version]
                 [/if#teacher-portal]
 
                 ~[if#pubic-portal.~[directory]=guardian]
