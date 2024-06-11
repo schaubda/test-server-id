@@ -79,18 +79,27 @@
                 $j('title').prepend('~[displaypref:tcaps-testservername]: ');
 
                 ~[if#admin-portal.~[directory]=admin]
-                    $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
+                    ~[if#version.~[version]>=23.5]
+                        $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
+                    [else]
+                           $j('#branding-powerschool')
+                               .html('<img src="/scripts/pds/img/powerschool-white.svg" ' +
+                                     'alt="PowerSchool SIS">~[displaypref:tcaps-testservername]');
+                    [/if#version]
                 [/if#admin-portal]
 
                 ~[if#teacher-portal.~[directory]=teachers]
-                    $j('.pds-powerschool-logo div').html('~[displaypref:tcaps-testservername]');
+                    ~[if#version.~[version]>=23.5]
+                        $j('.pds-powerschool-logo div').html('~[displaypref:tcaps-testservername]');
+                    [else]
+                        $j('#branding-powerschool')
+                           .html('<img src="/scripts/pds/img/powerschool-white.svg" ' +
+                                 'alt="PowerSchool SIS">~[displaypref:tcaps-testservername]');
                 [/if#teacher-portal]
 
                 ~[if#pubic-portal.~[directory]=guardian]
                     $j('#branding-powerschool').after($j('#test-server-name-template').html());
                 [/if#pubic-portal]
-
-                console.log('Server version: ~[version]')
            });
     </script>
 [/if#name-set]
