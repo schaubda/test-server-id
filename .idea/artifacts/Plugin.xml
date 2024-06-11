@@ -2,8 +2,15 @@
   <artifact name="Plugin">
     <output-path>$PROJECT_DIR$/build</output-path>
     <root id="root">
-      <element id="archive" name="tcaps-test-server-id.zip">
-        <element id="dir-copy" path="$PROJECT_DIR$/eui_plugin" />
+      <element id="directory" name="eui-plugin">
+        <element id="archive" name="tcaps-test-server-id-eui.zip">
+          <element id="dir-copy" path="$PROJECT_DIR$/eui_plugin" />
+        </element>
+      </element>
+      <element id="directory" name="non-eui-plugin">
+        <element id="archive" name="tcaps-test-serverid-id-non-eui.zip">
+          <element id="dir-copy" path="$PROJECT_DIR$/standard_ui_plugin" />
+        </element>
       </element>
     </root>
   </artifact>

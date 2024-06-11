@@ -89,6 +89,8 @@
                 ~[if#pubic-portal.~[directory]=guardian]
                     $j('#branding-powerschool').after($j('#test-server-name-template').html());
                 [/if#pubic-portal]
+
+                console.log('Server version: ~[version]')
            });
     </script>
 [/if#name-set]
