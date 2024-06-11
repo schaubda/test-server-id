@@ -79,6 +79,7 @@
                 $j('title').prepend('~[displaypref:tcaps-testservername]: ');
 
                 ~[if#admin-portal.~[directory]=admin]
+                    console.log('admin check passed');
                     ~[if#version.~[version]>=23.5]
                         $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
                     [else]
