@@ -10,7 +10,8 @@ messages for the admin, public, teacher, and substitute portals.
 ## Installation
 
 1. Download the latest release from the
-   [releases page](https://github.com/schaubda/test-server-id/releases).
+   [releases page](https://github.com/schaubda/test-server-id/releases) or from
+   [PowerSource](https://support.powerschool.com/exchange/view.action?download.id=1294).
 2. Install the downloaded zip file on PowerSchool's Plugin Configuration page.
 3. Enable the TCAPS Test Server Identification plugin.
 
