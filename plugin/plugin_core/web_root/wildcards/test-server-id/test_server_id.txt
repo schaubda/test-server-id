@@ -1,12 +1,12 @@
 <!-- Begin TCAPS Test Server Identification Plugin -->
 <style>
-    ~[if#override-enabled.~[displaypref:tcaps-testserveroverridecolor]#]
-        ~[if#color-enabled.~[displaypref:tcaps-testservercolor]#]
+    ~[if#override-enabled.~[displaypref:testserveroverridecolor]#]
+        ~[if#color-enabled.~[displaypref:testservercolor]#]
             ~[if#admin-portal.~[directory]=admin]
             .pds-app-header-bar
             {
-                --bg-color1: ~[displaypref:tcaps-testservercolor];
-                --bg-color2: color-mix(in srgb, ~[displaypref:tcaps-testservercolor], #000 40%);
+                --bg-color1: ~[displaypref:testservercolor];
+                --bg-color2: color-mix(in srgb, ~[displaypref:testservercolor], #000 40%);
 
                 background:  linear-gradient(90deg, var(--bg-color1), var(--bg-color2)) !important;
             }
@@ -15,8 +15,8 @@
             ~[if#teacher-portal.~[directory]=teachers]
             .pds-app-header-bar
             {
-                --bg-color1: ~[displaypref:tcaps-testservercolor];
-                --bg-color2: color-mix(in srgb, ~[displaypref:tcaps-testservercolor], #000 40%);
+                --bg-color1: ~[displaypref:testservercolor];
+                --bg-color2: color-mix(in srgb, ~[displaypref:testservercolor], #000 40%);
 
                 background:  linear-gradient(90deg, var(--bg-color1), var(--bg-color2)) !important;
             }
@@ -25,26 +25,26 @@
     [/if#override-enabled]
 
     ~[if#pubic-portal.~[directory]=guardian]
-        ~[if#override-enabled.~[displaypref:tcaps-testserveroverridecolor]#]
-            ~[if#color-enabled.~[displaypref:tcaps-testservercolor]#]
+        ~[if#override-enabled.~[displaypref:testserveroverridecolor]#]
+            ~[if#color-enabled.~[displaypref:testservercolor]#]
                 #usercontext-bar
                 {
-                    background: ~[displaypref:tcaps-testservercolor] !important;
+                    background: ~[displaypref:testservercolor] !important;
                 }
 
                 #btnContMax
                 {
-                    background: ~[displaypref:tcaps-testservercolor] !important;
+                    background: ~[displaypref:testservercolor] !important;
                 }
 
                 #students-list li.selected a, #students-list li:hover a
                 {
-                    background: color-mix(in srgb, ~[displaypref:tcaps-testservercolor], #FFF 30%)  !important;
+                    background: color-mix(in srgb, ~[displaypref:testservercolor], #FFF 30%)  !important;
                 }
             [/if#color-enabled]
         [/if#override-enabled]
 
-        ~[if#name-set.~[displaypref:tcaps-testservername]#]
+        ~[if#name-set.~[displaypref:testservername]#]
             #branding-powerschool
             {
                 display: inline-block;
@@ -67,34 +67,34 @@
 ~[if#public-portal.~[directory]=guardian]
     <script type="text/template" id="test-server-name-template">
         <div id="test-server-name">
-            <h1>~[displaypref:tcaps-testservername]</h1>
+            <h1>~[displaypref:testservername]</h1>
         </div>
     </script>
 [/if#public-portal]
 
-~[if#name-set.~[displaypref:tcaps-testservername]#]
+~[if#name-set.~[displaypref:testservername]#]
     <script>
         $j(function ()
            {
-                $j('title').prepend('~[displaypref:tcaps-testservername]: ');
+                $j('title').prepend('~[displaypref:testservername]: ');
 
                 ~[if#admin-portal.~[directory]=admin]
                     ~[if#version.~[version]>=23.5]
-                        $j('.pds-logo-text-primary').text('~[displaypref:tcaps-testservername]');
+                        $j('.pds-logo-text-primary').text('~[displaypref:testservername]');
                     [else#version]
                            $j('#branding-powerschool')
                                .html('<img src="/scripts/pds/img/powerschool-white.svg" ' +
-                                     'alt="PowerSchool SIS">~[displaypref:tcaps-testservername]');
+                                     'alt="PowerSchool SIS">~[displaypref:testservername]');
                     [/if#version]
                 [/if#admin-portal]
 
                 ~[if#teacher-portal.~[directory]=teachers]
                     ~[if#version.~[version]>=23.5]
-                        $j('.pds-powerschool-logo div').html('~[displaypref:tcaps-testservername]');
+                        $j('.pds-powerschool-logo div').html('~[displaypref:testservername]');
                     [else#version]
                         $j('#branding-powerschool')
                            .html('<img src="/scripts/pds/img/powerschool-white.svg" ' +
-                                 'alt="PowerSchool SIS">~[displaypref:tcaps-testservername]');
+                                 'alt="PowerSchool SIS">~[displaypref:testservername]');
                     [/if#version]
                 [/if#teacher-portal]
 

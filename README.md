@@ -1,4 +1,4 @@
-# TCAPS Test Server Identification plugin
+# Test Server Identification plugin
 
 This is a fork of Adam Larsen's
 [Test Server Identification](https://support.powerschool.com/exchange/view.action?download.id=728)
@@ -13,7 +13,7 @@ messages for the admin, public, teacher, and substitute portals.
    [releases page](https://github.com/schaubda/test-server-id/releases) or from
    [PowerSource](https://support.powerschool.com/exchange/view.action?download.id=1294).
 2. Install the downloaded zip file on PowerSchool's Plugin Configuration page.
-3. Enable the TCAPS Test Server Identification plugin.
+3. Enable the Test Server Identification plugin.
 
 ## Usage
 

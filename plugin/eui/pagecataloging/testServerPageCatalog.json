@@ -1,12 +1,12 @@
 {
   "pages": [
     {
-      "htmlID": "tcapsTestServerSettings",
+      "htmlID": "testServerSettings",
       "title": "Test Server Display Settings",
-      "pageURL": "/admin/district/tcaps/test_server_settings.html",
+      "pageURL": "/admin/district/test-server-id/test_server_settings.html",
       "sortOrder": 999,
       "parentHTMLID": "navDistrictManagementDisplayPreferences",
-      "version": "24.5.0.1",
+      "version": "24.9.2.1",
       "contextType": "main",
       "requiredContext": "",
       "districtLevelContext": "2"

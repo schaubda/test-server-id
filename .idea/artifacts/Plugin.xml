@@ -3,13 +3,13 @@
     <output-path>$PROJECT_DIR$/build</output-path>
     <root id="root">
       <element id="directory" name="eui-plugin">
-        <element id="archive" name="tcaps-test-server-id-eui.zip">
+        <element id="archive" name="test-server-id-eui.zip">
           <element id="dir-copy" path="$PROJECT_DIR$/plugin/eui" />
           <element id="dir-copy" path="$PROJECT_DIR$/plugin/plugin_core" />
         </element>
       </element>
       <element id="directory" name="non-eui-plugin">
-        <element id="archive" name="tcaps-test-serverid-id-non-eui.zip">
+        <element id="archive" name="test-serverid-id-non-eui.zip">
           <element id="dir-copy" path="$PROJECT_DIR$/plugin/non-eui" />
           <element id="dir-copy" path="$PROJECT_DIR$/plugin/plugin_core" />
         </element>
